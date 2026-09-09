@@ -1,1 +1,33 @@
+print("""Recuerde que un S.D.E. 2x2 se representa:
 
+Ax + By = C  (1)
+Dx + Ey = F  (2)
+""")
+
+print("Ingrese los valores de la ecuación (1)")
+A = float(input("Ingrese el número A: "))
+B = float(input("Ingrese el número B: "))
+C = float(input("Ingrese el número C: "))
+
+print()
+print("Ingrese los valores de la ecuación (2)")
+D = float(input("Ingrese el número D: "))
+E = float(input("Ingrese el número E: "))
+F = float(input("Ingrese el número F: "))
+
+det = (A * E) - (B * D)
+
+if det != 0:
+    valor_x = ((C * E) - (B * F)) / det
+    valor_y = ((A * F) - (C * D)) / det
+
+    print()
+    print("El sistema tiene una solución única.")
+    print("El valor de x es:", valor_x)
+    print("El valor de y es:", valor_y)
+
+elif (A * F) - (C * D) == 0:
+    print("El sistema tiene infinitas soluciones.")
+
+else:
+    print("El sistema no tiene solución.")
