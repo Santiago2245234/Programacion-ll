@@ -1,0 +1,11 @@
+a = 4
+b = 2.5
+c = "3"
+
+resultado_a = a + b
+resultado_b = a * int(c)
+resultado_c = str(a) + c
+
+print(f"a) Resultado: {resultado_a} | Tipo: {type(resultado_a)}")
+print(f"b) Resultado: {resultado_b} | Tipo: {type(resultado_b)}")
+print(f"c) Resultado: '{resultado_c}' | Tipo: {type(resultado_c)}")
