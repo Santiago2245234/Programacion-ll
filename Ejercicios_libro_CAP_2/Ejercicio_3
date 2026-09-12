@@ -1,0 +1,10 @@
+
+entero = 10
+decimal = 5.75
+booleano = True
+texto = "Hola, Python"
+
+print(f"La variable 'entero' tiene el valor {entero} y es de tipo: {type(entero)}")
+print(f"La variable 'decimal' tiene el valor {decimal} y es de tipo: {type(decimal)}")
+print(f"La variable 'booleano' tiene el valor {booleano} y es de tipo: {type(booleano)}")
+print(f"La variable 'texto' tiene el valor '{texto}' y es de tipo: {type(texto)}")
