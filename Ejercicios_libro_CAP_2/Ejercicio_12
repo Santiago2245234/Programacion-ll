@@ -1,0 +1,9 @@
+##Ejercicio 12
+###dinero_usuario = input("¿De cuánto dinero dispones? ")
+precio = 1199999.99
+print(dinero_usuario > precio)###
+
+###El error en el código se debe a un TypeError en la línea 3, ya que la función input() 
+almacena la entrada como texto y no se puede comparar directamente un valor de tipo str con el número 
+decimal float del precio. Para corregirlo, es necesario convertir la entrada del 
+usuario a un valor numérico utilizando la función float() antes de realizar la comparación lógica.
