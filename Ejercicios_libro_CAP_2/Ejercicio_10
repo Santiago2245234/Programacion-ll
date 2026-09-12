@@ -1,0 +1,17 @@
+# Intento de conversión inválida
+try:
+    # Esta línea romperá la ejecución del programa
+    numero = int("Hola") 
+    
+except ValueError as error:
+    # Explicación del error generado:
+    print(f"Se ha generado un error: {error}\n")
+    print("EXPLICACIÓN DEL ERROR:")
+    print("-" * 50)
+    # 1. Nombre del error: ValueError (Error de Valor).
+    # 2. Causa: La función int() espera una cadena que contenga dígitos numéricos 
+    #    (como "123" o "-45"). Al recibir caracteres alfabéticos ("Hola"), 
+    #    Python no tiene una base matemática para realizar la conversión.
+    # 3. Literal inválido: El sistema avisa que 'Hola' no es un literal válido 
+    #    para la base 10 (sistema decimal).
+    print("-" * 50)
