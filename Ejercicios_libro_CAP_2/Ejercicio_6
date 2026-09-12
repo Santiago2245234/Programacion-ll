@@ -1,0 +1,8 @@
+edad = 17
+ciudadano = False
+
+# Expresión lógica con el operador 'and'
+puede_votar = (edad >= 18) and ciudadano
+
+# Mostrar el resultado
+print(f"¿La persona puede votar?: {puede_votar}")
