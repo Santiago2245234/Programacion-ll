@@ -1,0 +1,11 @@
+texto = "Hola Mundo."
+
+mayusculas = texto.upper()
+
+minusculas = texto.lower()
+
+reemplazo = texto.replace("Mundo", "Universo")
+
+print(f"a) Mayúsculas: {mayusculas}")
+print(f"b) Minúsculas: {minusculas}")
+print(f"c) Reemplazo:   {reemplazo}")
