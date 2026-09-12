@@ -1,0 +1,3 @@
+nombre_completo = "Ana"
+edad = 22
+print(f"Me llamo {nombre_completo} y tengo {edad} años.")
