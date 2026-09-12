@@ -1,0 +1,198 @@
+import math
+
+menu = 0
+n_carro = 0
+n_moto = 0
+total_1 = 0  # carro
+total_2 = 0  # moto
+
+placa = []
+tipo = []
+entra = []
+salida = []
+permanencia = []
+precio = []
+
+while menu == 0:
+
+    print("\n----- PARQUEADERO -----")
+    print("1. Registrar ingreso de vehículo")
+    print("2. Registrar salida de vehículo")
+    print("3. Mostrar resumen del día")
+    print("4. Salir")
+
+    opcion = input("Seleccione una opción: ")
+
+    # REGISTRAR INGRESO
+    if opcion == "1":
+
+        es = input("Bienvenido! Seleccione 1. Carro ó 2. Moto: ")
+
+        if es == "1":
+
+            placa_nueva = input("Por favor ingrese el número de la placa: ")
+
+            if placa_nueva in placa:
+                print("Esta placa ya está registrada.")
+            else:
+                tipo.append("carro")
+                placa.append(placa_nueva)
+
+                hora_entrada_carro = input(
+                    "Por favor ingrese la hora de entrada formato 24h: "
+                )
+                entra.append(hora_entrada_carro)
+
+                n_carro += 1
+
+                print("Carro registrado correctamente.")
+                print("Placa:", placa_nueva)
+                print("Hora de entrada:", hora_entrada_carro)
+
+        elif es == "2":
+
+            placa_nueva = input("Ingrese el número de placa: ")
+
+            if placa_nueva in placa:
+                print("Esta placa ya está registrada.")
+            else:
+                tipo.append("moto")
+                placa.append(placa_nueva)
+
+                hora_entrada_moto = input(
+                    "Ingrese la hora de entrada al parqueadero: "
+                )
+                entra.append(hora_entrada_moto)
+
+                n_moto += 1
+
+                print("Moto registrada correctamente.")
+                print("Placa:", placa_nueva)
+                print("Hora de entrada:", hora_entrada_moto)
+
+        else:
+            print("Opción no válida")
+
+    # REGISTRAR SALIDA
+    elif opcion == "2":
+
+        placa_salida = input(
+            "Ingrese la placa del vehículo que va a salir: "
+        )
+
+        if placa_salida in placa:
+
+            posicion = placa.index(placa_salida)
+
+            hora_entrada = entra[posicion]
+
+            hora_salida = input(
+                "Ingrese la hora de salida formato 24h: "
+            )
+
+            # CONVERTIR HORA DE ENTRADA A MINUTOS
+
+            separar = hora_entrada.split(":")
+            horas = int(separar[0])
+            minutos = int(separar[1])
+
+            total_hora_entrada = (horas * 60) + minutos
+
+            # CONVERTIR HORA DE SALIDA A MINUTOS
+
+            separar_2 = hora_salida.split(":")
+            horas_2 = int(separar_2[0])
+            minutos_2 = int(separar_2[1])
+
+            total_hora_salida = (horas_2 * 60) + minutos_2
+
+            # CALCULAR DURACIÓN
+
+            duracion = total_hora_salida - total_hora_entrada
+
+            if duracion < 0:
+                print("La hora de salida no puede ser menor que la hora de entrada.")
+
+            else:
+
+                permanencia.append(duracion)
+                salida.append(hora_salida)
+
+                print("\n----- FACTURA -----")
+                print("Placa:", placa_salida)
+                print("Tipo:", tipo[posicion])
+                print("Hora de entrada:", hora_entrada)
+                print("Hora de salida:", hora_salida)
+                print("Duración:", duracion, "minutos")
+
+                # CALCULAR PRECIO
+
+                fraccion = math.ceil(duracion / 15)
+
+                if tipo[posicion] == "moto":
+
+                    total_dinero_moto = fraccion * 500
+
+                    precio.append(total_dinero_moto)
+
+                    print("Fracciones:", fraccion)
+                    print("Dinero a pagar por la moto: $", total_dinero_moto)
+
+                    total_2 += total_dinero_moto
+
+                elif tipo[posicion] == "carro":
+
+                    total_dinero_carro = fraccion * 1000
+
+                    precio.append(total_dinero_carro)
+
+                    print("Fracciones:", fraccion)
+                    print("Dinero a pagar por el carro: $", total_dinero_carro)
+
+                    total_1 += total_dinero_carro
+
+                # ELIMINAR VEHÍCULO DEL PARQUEADERO
+
+                placa.pop(posicion)
+                tipo.pop(posicion)
+                entra.pop(posicion)
+
+        else:
+            print("No se encontró un vehículo con esa placa.")
+
+    # MOSTRAR RESUMEN
+
+    elif opcion == "3":
+
+        print("\n----- RESUMEN DEL DÍA -----")
+        print("El número de carros que ingresaron fue:", n_carro)
+        print("El número de motos que ingresaron fue:", n_moto)
+
+        print("Dinero recogido por carros: $", total_1)
+        print("Dinero recogido por motos: $", total_2)
+        print("Dinero total recogido: $", total_1 + total_2)
+
+        print("\nVehículos que todavía están en el parqueadero:")
+
+        if len(placa) == 0:
+            print("No hay vehículos actualmente en el parqueadero.")
+        else:
+            for i in range(len(placa)):
+                print(
+                    "Placa:", placa[i],
+                    "- Tipo:", tipo[i],
+                    "- Entrada:", entra[i]
+                )
+
+    # SALIR DEL PROGRAMA
+
+    elif opcion == "4":
+
+        print("\nHasta luego!")
+        menu = 1
+
+    else:
+        print("Opción no válida")
+
+
+# RESULTADO FINAL
