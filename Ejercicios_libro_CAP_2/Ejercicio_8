@@ -1,0 +1,8 @@
+aprobado_input = input("¿Aprobó el curso introductorio? (sí/no): ").strip().lower()
+aprobado_introductorio = aprobado_input == "sí" or aprobado_input == "si"
+
+promedio = float(input("Introduce tu promedio: "))
+
+puede_inscribirse = aprobado_introductorio and (promedio >= 3.5)
+
+print(puede_inscribirse)
